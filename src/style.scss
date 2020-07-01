@@ -149,7 +149,6 @@ button:hover {
         padding: 5em;
         overflow-y: scroll;
         max-height: 55vh;
-        border: 1px solid $primary-bg;
         &::-webkit-scrollbar {
           background: transparent;
         }
@@ -228,7 +227,6 @@ button:hover {
     #contact {
       height: 95vh;
       padding: 4em 7em 0 7em;
-      border: 1px solid $primary-bg;
       h1 {
         @include section-heading();
       }
