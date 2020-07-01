@@ -93,7 +93,7 @@ button:hover {
           font-weight: 300;
         }
         h2 {
-          line-height: 100px;
+          line-height: 150px;
           font-size: 100px;
           font-weight: normal;
           padding-left: 10px;
@@ -134,55 +134,176 @@ button:hover {
       }
     }
     #projects {
-      height: 100vh;
-      padding: 4em 0 0 7em;
+      height: auto;
+      padding: 4em 7em 0 7em;
+      margin: 0;
+      overflow-y: hidden;
       h1 {
         @include section-heading();
       }
-      .collection {
+      .project-container {
+        margin: 4em 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-gap: 1rem;
+        padding: 5em;
+        overflow-y: scroll;
+        max-height: 55vh;
+        border: 1px solid $primary-bg;
+        &::-webkit-scrollbar {
+          background: transparent;
+        }
+        .img-container {
+          overflow: hidden;
+          .text-modal-open {
+            display: none;
+          }
+          img {
+            width: 100%;
+            min-height: 200px;
+            object-fit: cover;
+            transform: all 0.5s ease-out;
+            cursor: pointer;
+          }
+          img:hover {
+            transform: scale(1.2);
+          }
+        }
+      }
+      .modal {
+        background: rgba(0, 0, 0, 0.7);
+        top: 0;
+        left: 0;
+        width: 99vw;
+        height: 99vh;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.25s ease-out;
+        margin: 0;
         display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: space-evenly;
-        align-items: flex-start;
-        margin: 5em 5em 5em 0;
-        div {
-          @include space0();
+        align-items: center;
+        justify-content: center;
+        .full-img {
+          position: relative;
+          max-height: 50%;
+          margin-right: 2em;
+        }
+        .text-container {
           display: flex;
-          align-items: center;
-          flex-wrap: wrap;
           flex-direction: column;
-          min-width: 350px;
-          height: 350px;
-          margin: 2em 0 2em 2em;
-          div {
-            border: 1px solid $gray;
-            width: inherit;
-            height: 250px;
-            margin: 0;
-          }
-          a {
+          background: white;
+          max-width: 450px;
+          height: auto;
+          margin-top: 0;
+          padding: 2em;
+          h3 {
+            line-height: 25px;
+            color: black;
+            font-weight: 600;
             font-size: 20px;
-            text-decoration: none;
-            color: $primary-bg;
-            margin-top: 15px;
+            letter-spacing: 1px;
+            cursor: pointer;
           }
-          a:hover {
-            text-decoration: underline;
-            color: $gray;
+          h5 {
             font-weight: 400;
+            font-size: 18px;
+          }
+          .button-option {
+            display: flex;
+            button {
+              width: 200px;
+              height: 40px;
+              border-radius: 20px;
+              margin: 10px 5px 0 10px;
+            }
           }
         }
-        :first-child {
-          margin-left: 0;
-        }
+      }
+      .modal.open {
+        transition: 0.25s ease-out;
+        opacity: 1;
+        pointer-events: all;
       }
     }
     #contact {
-      height: 100vh;
-      padding: 4em 0 0 7em;
+      height: 95vh;
+      padding: 4em 7em 0 7em;
+      border: 1px solid $primary-bg;
       h1 {
         @include section-heading();
+      }
+      .contact-container {
+        align-self: center;
+        display: flex;
+        width: inherit;
+        height: 70vh;
+        border: 1px solid #d2d2d2;
+        margin-top: 4em;
+        position: relative;
+        .contact-form {
+          h2 {
+            text-align: center;
+            margin-top: 1em;
+          }
+          width: 60%;
+          input {
+            width: 80%;
+            display: block;
+            margin: auto auto;
+            margin-bottom: 1em;
+          }
+
+          textarea {
+            width: 80%;
+            align-self: center;
+            display: block;
+            margin: auto auto;
+          }
+          input[type="submit"] {
+            display: block;
+            margin: auto auto;
+            width: 200px;
+            height: 50px;
+            border-radius: 25px;
+            background: linear-gradient(
+              133.03deg,
+              #000102 3.92%,
+              rgba(34, 34, 34, 0.98) 97.24%
+            );
+            border: none;
+            color: $primary-color;
+            font-size: 25px;
+            margin-top: 1em;
+          }
+          input[type="submit"]:hover {
+            border: 2px solid $secondary-bg;
+            color: $primary-bg;
+            background: $secondary-color;
+            font-weight: 400;
+            letter-spacing: 1px;
+            box-shadow: 10px 10px 15px $secondary-color;
+          }
+        }
+        .contact-map {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          overflow-x: hidden;
+          letter-spacing: 1px;
+          div {
+            position: absolute;
+            background: $primary-bg;
+            width: inherit;
+            opacity: 0.8;
+            color: $primary-color;
+            font-size: 15px;
+            padding: 2em 0 2em 2em;
+          }
+          i {
+            z-index: 9;
+          }
+        }
       }
     }
   }

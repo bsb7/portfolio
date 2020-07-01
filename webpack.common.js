@@ -1,26 +1,27 @@
 const path = require('path');
 
 module.exports = {
-    entry:{
+    entry: {
         main: "./src/index.js",
     },
     devtool: "none",
-    module:{
-        rules:[
+    module: {
+        rules: [
             {
                 test: /\.html/,
                 use: ["html-loader"]
             },
             {
-                test:/\.(svg|png|jpg|gif)$/,
-                use:{
+                test: /\.(svg|png|jpg|gif)$/,
+                use: {
                     loader: "file-loader",
-                    options:{
-                        name:"[name].[hash].[ext]",
-                        outputPath:"imgs"
+                    options: {
+                        name: "[name].[hash].[ext]",
+                        outputPath: "imgs"
                     }
                 }
             }
+
         ]
-    }
+    },
 }

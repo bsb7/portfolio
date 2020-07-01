@@ -7,7 +7,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-module.exports = {
+module.exports = merge(common, {
     mode: 'production',
     output: {
         filename: '[name].[contentHash].bundle.js',
@@ -41,4 +41,4 @@ module.exports = {
     optimization: {
         minimizer: [new OptimizeCssAssetsPlugin(), new TerserPlugin()]
     }
-}
+})
