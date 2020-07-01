@@ -272,6 +272,7 @@ button:hover {
             color: $primary-color;
             font-size: 25px;
             margin-top: 1em;
+            outline: none;
           }
           input[type="submit"]:hover {
             border: 2px solid $secondary-bg;
