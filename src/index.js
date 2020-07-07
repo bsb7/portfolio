@@ -1,4 +1,5 @@
 import './style.scss';
+import './assets/full/blue-white-and-red-poppy-flower-field-712876.jpg';
 
 const nav = document.querySelectorAll('.nav-item')
 const contentDiv = document.querySelector('.content')
@@ -8,6 +9,7 @@ const previews = document.querySelectorAll('.project-container img');
 const original = document.querySelector('.full-img');
 const projectCaption = document.querySelector('.caption');
 const projectDescription = document.querySelector('.project-description');
+
 let sections = {};
 
 contentDiv.onscroll = function () {
@@ -22,11 +24,10 @@ contentDiv.onscroll = function () {
             document.querySelector('.active').setAttribute('class', ' ')
             document
                 .querySelector('a[href*=' + i + ']')
-                .setAttribute('class', 'active')
+                .setAttribute('class', 'active');
         }
     }
 }
-
 previews.forEach(preview => {
     preview.addEventListener('click', () => {
         modal.classList.add('open');
